@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Dashboard | Stackly</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- Custom CSS -->
+<link href="assets/css/style.css?v=2" rel="stylesheet"/>
+<link href="assets/css/dashboard.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="dashboard-layout">
+<!-- Sidebar -->
+<aside class="dashboard-sidebar" id="dashboardSidebar">
+<div class="sidebar-header">
+<a class="d-flex align-items-center fw-bold text-dark text-decoration-none" href="404.html">
+<img src="assets/images/logo.webp" alt="Stackly Logo" height="30">
+</a>
+</div>
+<div class="sidebar-menu">
+<span class="menu-label">Main</span>
+<a class="menu-item active" data-target="overview-section" href="#"><i class="fa-solid fa-chart-pie"></i> Overview</a>
+<a class="menu-item" data-target="users-section" href="#"><i class="fa-solid fa-users"></i> Users</a>
+<a class="menu-item" data-target="content-section" href="#"><i class="fa-solid fa-video"></i> Content</a>
+<a class="menu-item" data-target="analytics-section" href="#"><i class="fa-solid fa-chart-line"></i> Analytics</a>
+<a class="menu-item" data-target="settings-section" href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+</div>
+<div class="sidebar-footer">
+<div class="d-flex align-items-center gap-2 mb-3 pb-3 border-bottom">
+<img alt="Admin" class="rounded-circle" height="35" src="https://ui-avatars.com/api/?name=Admin+User&amp;background=2563EB&amp;color=fff" width="35"/>
+<div class="text-truncate">
+<p class="mb-0 fw-bold small text-dark">Admin User</p>
+<p class="mb-0 text-muted text-truncate user-email-display" style="font-size: 0.7rem;">admin@stackly.app</p>
+</div>
+</div>
+<a class="menu-item text-danger" href="#" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="dashboard-main">
+<!-- Topbar -->
+<header class="dashboard-topbar">
+<div class="d-flex align-items-center gap-3">
+<button class="mobile-toggle me-2" id="mobileToggle">
+<i class="fa-solid fa-bars"></i>
+</button>
+<h5 class="mb-0 fw-bold text-dark fs-6 fs-md-5 text-truncate" id="topbarTitle">Admin Dashboard</h5>
+</div>
+<div class="d-flex align-items-center gap-3 ms-auto">
+<div class="d-flex align-items-center gap-2">
+<div class="d-none d-lg-block text-end">
+<p class="mb-0 fw-bold small text-dark">Admin User</p>
+<p class="mb-0 text-muted user-email-display" style="font-size: 0.7rem;">admin@stackly.app</p>
+</div>
+<img alt="Admin" class="rounded-circle ms-2" height="35" src="https://ui-avatars.com/api/?name=Admin+User&amp;background=2563EB&amp;color=fff" width="35"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="dashboard-content">
+<!-- Overview Section -->
+<div class="content-section" id="overview-section">
+<!-- Quick Actions -->
+<div class="d-flex flex-wrap gap-2 mb-4">
+<button class="btn btn-primary rounded-pill px-4 shadow-sm" onclick="window.location.href='404.html'"><i class="fa-solid fa-plus me-2"></i>New Campaign</button>
+<button class="btn btn-outline-dark rounded-pill px-4" onclick="window.location.href='404.html'"><i class="fa-solid fa-download me-2"></i>Export Report</button>
+</div>
+<!-- Overview Cards -->
+<div class="row g-4 mb-5">
+<div class="col-xl-3 col-md-6">
+<div class="stat-card">
+<div class="stat-icon bg-primary text-white">
+<i class="fa-solid fa-users"></i>
+</div>
+<div class="stat-details">
+<p>Total Users</p>
+<h3>2.4M</h3>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-md-6">
+<div class="stat-card">
+<div class="stat-icon bg-success text-white">
+<i class="fa-solid fa-video"></i>
+</div>
+<div class="stat-details">
+<p>Total Videos</p>
+<h3>850K</h3>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-md-6">
+<div class="stat-card">
+<div class="stat-icon bg-warning text-white">
+<i class="fa-solid fa-eye"></i>
+</div>
+<div class="stat-details">
+<p>Total Views</p>
+<h3>1.2B</h3>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-md-6">
+<div class="stat-card">
+<div class="stat-icon bg-info text-white">
+<i class="fa-solid fa-clock"></i>
+</div>
+<div class="stat-details">
+<p>Watch Time (Hrs)</p>
+<h3>4.5M</h3>
+</div>
+</div>
+</div>
+</div>
+<!-- Charts Row 1 -->
+<div class="row g-4 mb-4">
+<div class="col-lg-8">
+<div class="chart-container">
+<div class="chart-header">
+<h3 class="chart-title">Platform Growth</h3>
+<select class="form-select form-select-sm w-auto shadow-none">
+<option>This Year</option>
+<option>Last Year</option>
+</select>
+</div>
+<div style="height: 300px;">
+<canvas id="growthChart"></canvas>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="chart-container">
+<div class="chart-header">
+<h3 class="chart-title">User Engagement</h3>
+<button class="btn btn-sm btn-light" onclick="window.location.href='404.html'"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+</div>
+<div style="height: 300px; display: flex; justify-content: center;">
+<canvas id="engagementChart"></canvas>
+</div>
+</div>
+</div>
+</div>
+<!-- Charts Row 2 -->
+<div class="row g-4 mb-4">
+<div class="col-lg-6">
+<div class="chart-container">
+<div class="chart-header">
+<h3 class="chart-title">Category Performance</h3>
+</div>
+<div style="height: 300px;">
+<canvas id="categoryChart"></canvas>
+</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="chart-container">
+<div class="chart-header">
+<h3 class="chart-title">Recent Activities</h3>
+</div>
+<div class="overflow-auto" style="height: 300px;">
+<div class="d-flex align-items-start mb-3 border-bottom pb-3">
+<div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 me-3"><i class="fa-solid fa-user-plus"></i></div>
+<div>
+<p class="mb-0 fw-medium text-dark small">New Creator Joined</p>
+<p class="mb-0 text-muted" style="font-size: 0.75rem;">@gamingking registered 5 mins ago</p>
+</div>
+</div>
+<div class="d-flex align-items-start mb-3 border-bottom pb-3">
+<div class="bg-success bg-opacity-10 text-success rounded-circle p-2 me-3"><i class="fa-solid fa-upload"></i></div>
+<div>
+<p class="mb-0 fw-medium text-dark small">Viral Video Alert</p>
+<p class="mb-0 text-muted" style="font-size: 0.75rem;">"Tech Review 2026" hit 1M views</p>
+</div>
+</div>
+<div class="d-flex align-items-start border-bottom pb-3">
+<div class="bg-danger bg-opacity-10 text-danger rounded-circle p-2 me-3"><i class="fa-solid fa-flag"></i></div>
+<div>
+<p class="mb-0 fw-medium text-dark small">Content Flagged</p>
+<p class="mb-0 text-muted" style="font-size: 0.75rem;">Multiple reports on Video ID #9821</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Recent Uploads Table -->
+<div class="table-container mb-4">
+<div class="p-4 border-bottom d-flex justify-content-between align-items-center">
+<h3 class="chart-title mb-0">Recent Uploads</h3>
+<a class="btn btn-sm btn-outline-primary" href="404.html">View All</a>
+</div>
+<div class="table-responsive">
+<table class="table custom-table table-hover">
+<thead>
+<tr>
+<th>Video</th>
+<th>Creator</th>
+<th>Category</th>
+<th>Status</th>
+<th>Date</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<div class="d-flex align-items-center gap-3">
+<img alt="Thumbnail" class="rounded" src="images/unsplash-1b47427104.webp" width="60"/>
+<span class="fw-medium text-dark small">Epic Gaming Montage</span>
+</div>
+</td>
+<td><span class="small fw-medium">@pro_gamer</span></td>
+<td><span class="small">Gaming</span></td>
+<td><span class="status-badge status-success">Published</span></td>
+<td><span class="small text-muted">Just now</span></td>
+</tr>
+<tr>
+<td>
+<div class="d-flex align-items-center gap-3">
+<img alt="Thumbnail" class="rounded" src="images/unsplash-3b53f21f97.webp" width="60"/>
+<span class="fw-medium text-dark small">Bitcoin Market Analysis</span>
+</div>
+</td>
+<td><span class="small fw-medium">@crypto_daily</span></td>
+<td><span class="small">Finance</span></td>
+<td><span class="status-badge status-warning">Processing</span></td>
+<td><span class="small text-muted">10 mins ago</span></td>
+</tr>
+<tr>
+<td>
+<div class="d-flex align-items-center gap-3">
+<img alt="Thumbnail" class="rounded" src="images/unsplash-2a1fbd7762.webp" width="60"/>
+<span class="fw-medium text-dark small">My Morning Routine</span>
+</div>
+</td>
+<td><span class="small fw-medium">@lifestyle_jane</span></td>
+<td><span class="small">Vlogs</span></td>
+<td><span class="status-badge status-danger">Flagged</span></td>
+<td><span class="small text-muted">1 hour ago</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- End Overview Section -->
+<!-- Users Section -->
+<div class="content-section d-none" id="users-section">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h2 class="fw-bold mb-0">User Management</h2>
+<button class="btn btn-primary rounded-pill px-4" onclick="window.location.href='404.html'"><i class="fa-solid fa-user-plus me-2"></i>Add User</button>
+</div>
+<div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+<div class="card-header bg-white border-bottom p-4 d-flex justify-content-between align-items-center">
+<input class="form-control rounded-pill w-auto px-4 shadow-none" placeholder="Search users..." type="text"/>
+<select class="form-select w-auto shadow-none rounded-pill">
+<option>All Roles</option>
+<option>Creators</option>
+<option>Viewers</option>
+</select>
+</div>
+<div class="table-responsive">
+<table class="table custom-table table-hover mb-0 align-middle">
+<thead class="bg-light text-muted small tracking-wider">
+<tr>
+<th class="ps-4">User</th>
+<th>Role</th>
+<th>Status</th>
+<th>Joined Date</th>
+<th class="text-end pe-4">Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="ps-4">
+<div class="d-flex align-items-center gap-3">
+<img alt="Avatar" class="rounded-circle" src="https://ui-avatars.com/api/?name=Alex+Carter&amp;background=10B981&amp;color=fff" width="40"/>
+<div>
+<span class="d-block fw-bold text-dark small">Alex Carter</span>
+<span class="small text-muted">alex@example.com</span>
+</div>
+</div>
+</td>
+<td><span class="status-badge status-primary">Creator</span></td>
+<td><span class="status-badge status-success">Active</span></td>
+<td><span class="small text-muted">Jan 12, 2026</span></td>
+<td class="text-end pe-4">
+<button class="btn btn-sm btn-light rounded-circle me-1" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button>
+<button class="btn btn-sm btn-light rounded-circle text-danger" onclick="window.location.href='404.html'"><i class="fa-solid fa-ban"></i></button>
+</td>
+</tr>
+<tr>
+<td class="ps-4">
+<div class="d-flex align-items-center gap-3">
+<img alt="Avatar" class="rounded-circle" src="https://ui-avatars.com/api/?name=Maria+Lopez&amp;background=3B82F6&amp;color=fff" width="40"/>
+<div>
+<span class="d-block fw-bold text-dark small">Maria Lopez</span>
+<span class="small text-muted">maria.l@example.com</span>
+</div>
+</div>
+</td>
+<td><span class="status-badge status-secondary">Viewer</span></td>
+<td><span class="status-badge status-danger">Banned</span></td>
+<td><span class="small text-muted">Mar 05, 2026</span></td>
+<td class="text-end pe-4">
+<button class="btn btn-sm btn-light rounded-circle me-1" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button>
+<button class="btn btn-sm btn-light rounded-circle text-success" onclick="window.location.href='404.html'"><i class="fa-solid fa-check"></i></button>
+</td>
+</tr>
+<tr>
+<td class="ps-4">
+<div class="d-flex align-items-center gap-3">
+<img alt="Avatar" class="rounded-circle" src="https://ui-avatars.com/api/?name=David+Chen&amp;background=F59E0B&amp;color=fff" width="40"/>
+<div>
+<span class="d-block fw-bold text-dark small">David Chen</span>
+<span class="small text-muted">david.chen@example.com</span>
+</div>
+</div>
+</td>
+<td><span class="status-badge status-primary">Creator</span></td>
+<td><span class="status-badge status-warning">Suspended</span></td>
+<td><span class="small text-muted">Apr 18, 2026</span></td>
+<td class="text-end pe-4">
+<button class="btn btn-sm btn-light rounded-circle me-1" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button>
+<button class="btn btn-sm btn-light rounded-circle text-danger" onclick="window.location.href='404.html'"><i class="fa-solid fa-ban"></i></button>
+</td>
+</tr>
+<tr>
+<td class="ps-4">
+<div class="d-flex align-items-center gap-3">
+<img alt="Avatar" class="rounded-circle" src="https://ui-avatars.com/api/?name=Sarah+Jenkins&amp;background=8B5CF6&amp;color=fff" width="40"/>
+<div>
+<span class="d-block fw-bold text-dark small">Sarah Jenkins</span>
+<span class="small text-muted">s.jenkins@example.com</span>
+</div>
+</div>
+</td>
+<td><span class="status-badge status-secondary">Viewer</span></td>
+<td><span class="status-badge status-success">Active</span></td>
+<td><span class="small text-muted">May 02, 2026</span></td>
+<td class="text-end pe-4">
+<button class="btn btn-sm btn-light rounded-circle me-1" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button>
+<button class="btn btn-sm btn-light rounded-circle text-danger" onclick="window.location.href='404.html'"><i class="fa-solid fa-ban"></i></button>
+</td>
+</tr>
+<tr>
+<td class="ps-4">
+<div class="d-flex align-items-center gap-3">
+<img alt="Avatar" class="rounded-circle" src="https://ui-avatars.com/api/?name=James+Wilson&amp;background=EF4444&amp;color=fff" width="40"/>
+<div>
+<span class="d-block fw-bold text-dark small">James Wilson</span>
+<span class="small text-muted">jwilson99@example.com</span>
+</div>
+</div>
+</td>
+<td><span class="status-badge status-primary">Creator</span></td>
+<td><span class="status-badge status-success">Active</span></td>
+<td><span class="small text-muted">Jun 14, 2026</span></td>
+<td class="text-end pe-4">
+<button class="btn btn-sm btn-light rounded-circle me-1" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button>
+<button class="btn btn-sm btn-light rounded-circle text-danger" onclick="window.location.href='404.html'"><i class="fa-solid fa-ban"></i></button>
+</td>
+</tr>
+<tr>
+<td class="ps-4">
+<div class="d-flex align-items-center gap-3">
+<img alt="Avatar" class="rounded-circle" src="https://ui-avatars.com/api/?name=Emily+Davis&amp;background=EC4899&amp;color=fff" width="40"/>
+<div>
+<span class="d-block fw-bold text-dark small">Emily Davis</span>
+<span class="small text-muted">emilyd@example.com</span>
+</div>
+</div>
+</td>
+<td><span class="status-badge status-secondary">Viewer</span></td>
+<td><span class="status-badge status-success">Active</span></td>
+<td><span class="small text-muted">Jul 01, 2026</span></td>
+<td class="text-end pe-4">
+<button class="btn btn-sm btn-light rounded-circle me-1" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button>
+<button class="btn btn-sm btn-light rounded-circle text-danger" onclick="window.location.href='404.html'"><i class="fa-solid fa-ban"></i></button>
+</td>
+</tr>
+<tr>
+<td class="ps-4">
+<div class="d-flex align-items-center gap-3">
+<img alt="Avatar" class="rounded-circle" src="https://ui-avatars.com/api/?name=Michael+Brown&amp;background=14B8A6&amp;color=fff" width="40"/>
+<div>
+<span class="d-block fw-bold text-dark small">Michael Brown</span>
+<span class="small text-muted">mbrown_tech@example.com</span>
+</div>
+</div>
+</td>
+<td><span class="status-badge status-primary">Creator</span></td>
+<td><span class="status-badge status-success">Active</span></td>
+<td><span class="small text-muted">Jul 10, 2026</span></td>
+<td class="text-end pe-4">
+<button class="btn btn-sm btn-light rounded-circle me-1" onclick="window.location.href='404.html'"><i class="fa-solid fa-pen"></i></button>
+<button class="btn btn-sm btn-light rounded-circle text-danger" onclick="window.location.href='404.html'"><i class="fa-solid fa-ban"></i></button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Content Section -->
+<div class="content-section d-none" id="content-section">
+<h2 class="fw-bold mb-4">Video Content Manager</h2>
+<div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+<div class="table-responsive">
+<table class="table custom-table table-hover mb-0 align-middle">
+<thead class="bg-light text-muted small tracking-wider">
+<tr>
+<th class="ps-4">Video Details</th>
+<th>Creator</th>
+<th>Visibility</th>
+<th>Metrics</th>
+<th class="text-end pe-4">Manage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="ps-4">
+<div class="d-flex align-items-center gap-3">
+<img alt="Thumbnail" class="rounded" src="images/unsplash-8e2349fcdc.webp" width="80"/>
+<div>
+<span class="d-block fw-bold text-dark small">Epic Gaming Montage 2026</span>
+<span class="small text-muted">ID: #VID-9921</span>
+</div>
+</div>
+</td>
+<td><span class="small fw-medium">@pro_gamer</span></td>
+<td><span class="status-badge status-success">Public</span></td>
+<td>
+<span class="small text-muted d-block"><i class="fa-solid fa-eye me-1"></i> 1.2M</span>
+<span class="small text-muted"><i class="fa-solid fa-thumbs-up me-1"></i> 45K</span>
+</td>
+<td class="text-end pe-4">
+<button class="btn btn-sm btn-outline-danger rounded-pill px-3" onclick="window.location.href='404.html'">Unpublish</button>
+</td>
+</tr>
+<tr>
+<td class="ps-4">
+<div class="d-flex align-items-center gap-3">
+<img alt="Thumbnail" class="rounded" src="images/unsplash-d99aa00a20.webp" width="80"/>
+<div>
+<span class="d-block fw-bold text-dark small">Top 10 Productivity Tips</span>
+<span class="small text-muted">ID: #VID-8842</span>
+</div>
+</div>
+</td>
+<td><span class="small fw-medium">@lifehacker</span></td>
+<td><span class="status-badge status-primary">Private</span></td>
+<td>
+<span class="small text-muted d-block"><i class="fa-solid fa-eye me-1"></i> 240K</span>
+<span class="small text-muted"><i class="fa-solid fa-thumbs-up me-1"></i> 12K</span>
+</td>
+<td class="text-end pe-4">
+<button class="btn btn-sm btn-outline-danger rounded-pill px-3" onclick="window.location.href='404.html'">Unpublish</button>
+</td>
+</tr>
+<tr>
+<td class="ps-4">
+<div class="d-flex align-items-center gap-3">
+<img alt="Thumbnail" class="rounded" src="images/unsplash-7298b4e579.webp" width="80"/>
+<div>
+<span class="d-block fw-bold text-dark small">Web Development Crash Course</span>
+<span class="small text-muted">ID: #VID-7731</span>
+</div>
+</div>
+</td>
+<td><span class="small fw-medium">@code_ninja</span></td>
+<td><span class="status-badge status-success">Public</span></td>
+<td>
+<span class="small text-muted d-block"><i class="fa-solid fa-eye me-1"></i> 890K</span>
+<span class="small text-muted"><i class="fa-solid fa-thumbs-up me-1"></i> 65K</span>
+</td>
+<td class="text-end pe-4">
+<button class="btn btn-sm btn-outline-danger rounded-pill px-3" onclick="window.location.href='404.html'">Unpublish</button>
+</td>
+</tr>
+<tr>
+<td class="ps-4">
+<div class="d-flex align-items-center gap-3">
+<img alt="Thumbnail" class="rounded" src="images/unsplash-b62e0c2575.webp" width="80"/>
+<div>
+<span class="d-block fw-bold text-dark small">Daily Vlog #42: Moving Out</span>
+<span class="small text-muted">ID: #VID-6625</span>
+</div>
+</div>
+</td>
+<td><span class="small fw-medium">@sarah_vlogs</span></td>
+<td><span class="status-badge status-secondary">Unlisted</span></td>
+<td>
+<span class="small text-muted d-block"><i class="fa-solid fa-eye me-1"></i> 55K</span>
+<span class="small text-muted"><i class="fa-solid fa-thumbs-up me-1"></i> 3.2K</span>
+</td>
+<td class="text-end pe-4">
+<button class="btn btn-sm btn-outline-danger rounded-pill px-3" onclick="window.location.href='404.html'">Unpublish</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<!-- Analytics Section -->
+<div class="content-section d-none" id="analytics-section">
+<h2 class="fw-bold mb-4">Detailed Analytics</h2>
+<div class="row g-4">
+<div class="col-md-6">
+<div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+<h5 class="fw-bold mb-4">Revenue Breakdown</h5>
+<div class="mb-4">
+<div class="d-flex justify-content-between small mb-1">
+<span class="text-muted">Premium Subscriptions</span>
+<span class="fw-bold">$45,200</span>
+</div>
+<div class="progress" style="height: 8px;">
+<div class="progress-bar bg-primary" style="width: 55%"></div>
+</div>
+</div>
+<div class="mb-4">
+<div class="d-flex justify-content-between small mb-1">
+<span class="text-muted">Ad Revenue</span>
+<span class="fw-bold">$22,100</span>
+</div>
+<div class="progress" style="height: 8px;">
+<div class="progress-bar bg-success" style="width: 25%"></div>
+</div>
+</div>
+<div class="mb-4">
+<div class="d-flex justify-content-between small mb-1">
+<span class="text-muted">Sponsorships &amp; Affiliates</span>
+<span class="fw-bold">$12,450</span>
+</div>
+<div class="progress" style="height: 8px;">
+<div class="progress-bar bg-warning" style="width: 15%"></div>
+</div>
+</div>
+<div>
+<div class="d-flex justify-content-between small mb-1">
+<span class="text-muted">Merchandise Sales</span>
+<span class="fw-bold">$4,800</span>
+</div>
+<div class="progress" style="height: 8px;">
+<div class="progress-bar bg-info" style="width: 5%"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+<h5 class="fw-bold mb-4">Server Health</h5>
+<div class="d-flex align-items-center gap-4 mb-4">
+<div class="position-relative" style="width: 100px; height: 100px;">
+<svg height="100" viewbox="0 0 100 100" width="100">
+<circle cx="50" cy="50" fill="none" r="45" stroke="#e2e8f0" stroke-width="10"></circle>
+<circle cx="50" cy="50" fill="none" r="45" stroke="#10b981" stroke-dasharray="283" stroke-dashoffset="70" stroke-width="10"></circle>
+</svg>
+<div class="position-absolute top-50 start-50 translate-middle text-center">
+<h4 class="mb-0 fw-bold">75%</h4>
+</div>
+</div>
+<div>
+<p class="mb-1 fw-bold text-dark">Storage Capacity</p>
+<p class="small text-muted mb-0">150 TB / 200 TB used. System performing optimally.</p>
+</div>
+</div>
+<div class="border-top pt-4">
+<div class="d-flex justify-content-between align-items-center mb-2">
+<span class="small fw-bold text-muted">CPU Usage</span>
+<span class="small text-dark fw-bold">42%</span>
+</div>
+<div class="progress mb-3" style="height: 6px;">
+<div class="progress-bar bg-info" style="width: 42%"></div>
+</div>
+<div class="d-flex justify-content-between align-items-center mb-2">
+<span class="small fw-bold text-muted">Memory Usage</span>
+<span class="small text-dark fw-bold">68%</span>
+</div>
+<div class="progress" style="height: 6px;">
+<div class="progress-bar bg-warning" style="width: 68%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Reports Section -->
+<div class="content-section d-none" id="reports-section">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h2 class="fw-bold mb-0">Content Reports <span class="badge bg-danger rounded-pill fs-6 ms-2">2 Pending</span></h2>
+<button class="btn btn-outline-dark rounded-pill px-4" onclick="window.location.href='404.html'">Review History</button>
+</div>
+<div class="d-flex flex-column gap-3">
+<div class="card border-0 shadow-sm rounded-4 p-4">
+<div class="row align-items-center">
+<div class="col-md-6 d-flex align-items-center gap-3">
+<img alt="Thumbnail" class="rounded" src="images/unsplash-bb5222e77a.webp" width="100"/>
+<div>
+<h6 class="fw-bold mb-1">Vlog: Wild Weekend</h6>
+<p class="small text-muted mb-0">Reported by: @concerned_user</p>
+</div>
+</div>
+<div class="col-md-3">
+<span class="badge bg-danger bg-opacity-10 text-danger mb-2">Inappropriate Content</span>
+<p class="small text-muted mb-0">"Contains explicit language at 4:20"</p>
+</div>
+<div class="col-md-3 text-end">
+<button class="btn btn-sm btn-danger rounded-pill px-3 me-2" onclick="window.location.href='404.html'">Take Down</button>
+<button class="btn btn-sm btn-light rounded-pill px-3" onclick="window.location.href='404.html'">Ignore</button>
+</div>
+</div>
+</div>
+<div class="card border-0 shadow-sm rounded-4 p-4">
+<div class="row align-items-center">
+<div class="col-md-6 d-flex align-items-center gap-3">
+<div class="bg-secondary bg-opacity-10 text-secondary rounded d-flex justify-content-center align-items-center" style="width: 100px; height: 60px;">
+<i class="fa-solid fa-comment fs-3"></i>
+</div>
+<div>
+<h6 class="fw-bold mb-1">Comment by @troll123</h6>
+<p class="small text-muted mb-0">On video: "Tech Review 2026"</p>
+</div>
+</div>
+<div class="col-md-3">
+<span class="badge bg-warning bg-opacity-10 text-warning mb-2">Harassment</span>
+<p class="small text-muted mb-0">"Spamming links and insults."</p>
+</div>
+<div class="col-md-3 text-end">
+<button class="btn btn-sm btn-danger rounded-pill px-3 me-2" onclick="window.location.href='404.html'">Ban User</button>
+<button class="btn btn-sm btn-light rounded-pill px-3" onclick="window.location.href='404.html'">Ignore</button>
+</div>
+</div>
+</div>
+<div class="card border-0 shadow-sm rounded-4 p-4">
+<div class="row align-items-center">
+<div class="col-md-6 d-flex align-items-center gap-3">
+<img alt="Thumbnail" class="rounded" src="images/unsplash-b62e0c2575.webp" width="100"/>
+<div>
+<h6 class="fw-bold mb-1">Livestream: Crypto Scams</h6>
+<p class="small text-muted mb-0">Reported by: Automated System</p>
+</div>
+</div>
+<div class="col-md-3">
+<span class="badge bg-danger bg-opacity-10 text-danger mb-2">Phishing / Scam</span>
+<p class="small text-muted mb-0">"Detected malicious links in chat."</p>
+</div>
+<div class="col-md-3 text-end">
+<button class="btn btn-sm btn-danger rounded-pill px-3 me-2" onclick="window.location.href='404.html'">Take Down</button>
+<button class="btn btn-sm btn-light rounded-pill px-3" onclick="window.location.href='404.html'">Ignore</button>
+</div>
+</div>
+</div>
+<div class="card border-0 shadow-sm rounded-4 p-4">
+<div class="row align-items-center">
+<div class="col-md-6 d-flex align-items-center gap-3">
+<div class="bg-secondary bg-opacity-10 text-secondary rounded d-flex justify-content-center align-items-center" style="width: 100px; height: 60px;">
+<i class="fa-solid fa-user fs-3"></i>
+</div>
+<div>
+<h6 class="fw-bold mb-1">User Profile: @fake_account00</h6>
+<p class="small text-muted mb-0">Reported by: @john_doe</p>
+</div>
+</div>
+<div class="col-md-3">
+<span class="badge bg-secondary bg-opacity-10 text-secondary mb-2">Impersonation</span>
+<p class="small text-muted mb-0">"Using my photos and name."</p>
+</div>
+<div class="col-md-3 text-end">
+<button class="btn btn-sm btn-danger rounded-pill px-3 me-2" onclick="window.location.href='404.html'">Ban User</button>
+<button class="btn btn-sm btn-light rounded-pill px-3" onclick="window.location.href='404.html'">Ignore</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Guidelines Section -->
+<div class="content-section d-none" id="guidelines-section">
+<h2 class="fw-bold mb-4">Community Guidelines Editor</h2>
+<div class="card border-0 shadow-sm rounded-4 p-0 overflow-hidden">
+<div class="bg-light border-bottom p-2 d-flex gap-2">
+<button class="btn btn-sm btn-white border" onclick="window.location.href='404.html'"><i class="fa-solid fa-bold"></i></button>
+<button class="btn btn-sm btn-white border" onclick="window.location.href='404.html'"><i class="fa-solid fa-italic"></i></button>
+<button class="btn btn-sm btn-white border" onclick="window.location.href='404.html'"><i class="fa-solid fa-list-ul"></i></button>
+<button class="btn btn-sm btn-white border" onclick="window.location.href='404.html'"><i class="fa-solid fa-link"></i></button>
+</div>
+<div class="p-4">
+<textarea class="form-control border-0 shadow-none" rows="18" style="resize: none;">
+Welcome to Stackly Community Guidelines!
+
+Our mission is to give everyone a voice and show them the world. To protect our community, we have strict policies that apply to all videos, comments, and interactions on Stackly.
+
+1. Spam &amp; Deceptive Practices
+The Stackly community is built on trust. Content that intends to scam, spam, or deceive other users is strictly prohibited. This includes fake engagement, impersonation, and phishing links.
+
+2. Sensitive Content
+We want Stackly to be a safe place. Please do not post content that features nudity, sexual violence, self-harm, or graphic/violent imagery intended to shock or disgust.
+
+3. Violent or Dangerous Content
+Hate speech, predatory behavior, graphic violence, malicious attacks, and content that promotes harmful or dangerous behavior are absolutely forbidden.
+
+4. Regulated Goods
+Do not sell or promote illegal or highly regulated goods on Stackly, including firearms, illicit drugs, or counterfeit products.
+
+5. Misinformation
+Content that contains demonstrably false information which may cause significant real-world harm is not allowed. 
+
+Violating any of these policies will result in immediate content removal and potential permanent account suspension.
+                            </textarea>
+</div>
+<div class="card-footer bg-white border-top text-end p-3">
+<button class="btn btn-primary rounded-pill px-4" onclick="window.location.href='404.html'">Publish Changes</button>
+</div>
+</div>
+</div>
+<!-- Settings Section -->
+<div class="content-section d-none" id="settings-section">
+<h2 class="fw-bold mb-4">System Settings</h2>
+<div class="row g-4">
+<div class="col-md-6">
+<div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+<h5 class="fw-bold mb-4">Global Toggles</h5>
+<div class="form-check form-switch mb-3">
+<input checked="" class="form-check-input" id="allowReg" role="switch" type="checkbox"/>
+<label class="form-check-label fw-medium" for="allowReg">Allow New User Registrations</label>
+<div class="form-text mt-0">If disabled, the signup page will be blocked.</div>
+</div>
+<div class="form-check form-switch mb-3">
+<input class="form-check-input" id="maintMode" role="switch" type="checkbox"/>
+<label class="form-check-label fw-medium" for="maintMode">Maintenance Mode</label>
+<div class="form-text mt-0">Displays a maintenance screen to all non-admin users.</div>
+</div>
+<div class="form-check form-switch">
+<input checked="" class="form-check-input" id="autoApprove" role="switch" type="checkbox"/>
+<label class="form-check-label fw-medium" for="autoApprove">Auto-approve Video Uploads</label>
+<div class="form-text mt-0">If disabled, all videos must be manually reviewed before publishing.</div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card border-0 shadow-sm rounded-4 p-4 h-100">
+<h5 class="fw-bold mb-4">API Configuration</h5>
+<div class="mb-3">
+<label class="form-label fw-medium small text-muted">AWS S3 Bucket URI</label>
+<input class="form-control" type="text" value="s3://stackly-video-storage-prod"/>
+</div>
+<div class="mb-4">
+<label class="form-label fw-medium small text-muted">Stripe Webhook Secret</label>
+<div class="input-group">
+<input class="form-control" type="password" value="whsec_1234567890abcdef"/>
+<button class="btn btn-outline-secondary" onclick="window.location.href='404.html'"><i class="fa-regular fa-eye"></i></button>
+</div>
+</div>
+<button class="btn btn-primary rounded-pill w-100" onclick="window.location.href='404.html'">Save Configuration</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Custom Admin Logic -->
+<script src="assets/js/admin.js?v=4"></script>
+<script src="assets/js/force-404.js?v=4"></script>
+</body>
+</html>

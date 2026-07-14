@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creator Dashboard | Stackly</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Font Awesome -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- Custom CSS -->
+<link href="assets/css/style.css?v=2" rel="stylesheet"/>
+<link href="assets/css/dashboard.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="dashboard-layout">
+<!-- Sidebar -->
+<aside class="dashboard-sidebar" id="dashboardSidebar">
+<div class="sidebar-header">
+<a class="d-flex align-items-center fw-bold text-dark text-decoration-none" href="404.html">
+<img src="assets/images/logo.webp" alt="Stackly Logo" height="30">
+</a>
+</div>
+<div class="sidebar-menu">
+<span class="menu-label">Main Menu</span>
+<a class="menu-item active" data-target="dashboard-section" href="#"><i class="fa-solid fa-house"></i> Dashboard</a>
+<a class="menu-item" data-target="videos-section" href="#"><i class="fa-solid fa-video"></i> My Videos</a>
+<a class="menu-item" data-target="history-section" href="#"><i class="fa-solid fa-clock-rotate-left"></i> History</a>
+<a class="menu-item" data-target="playlists-section" href="#"><i class="fa-solid fa-bookmark"></i> Saved Playlists</a>
+</div>
+<div class="sidebar-footer">
+<div class="d-flex align-items-center gap-2 mb-3 pb-3 border-bottom">
+<img alt="User" class="rounded-circle" height="35" src="https://ui-avatars.com/api/?name=User&amp;background=10B981&amp;color=fff" width="35"/>
+<div class="text-truncate">
+<p class="mb-0 fw-bold small text-dark">Creator Studio</p>
+<p class="mb-0 text-muted text-truncate user-email-display" style="font-size: 0.7rem;">creator@stackly.app</p>
+</div>
+</div>
+<a class="menu-item text-danger" href="#" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="dashboard-main">
+<!-- Topbar -->
+<header class="dashboard-topbar">
+<div class="d-flex align-items-center gap-3">
+<button class="mobile-toggle me-2" id="mobileToggle">
+<i class="fa-solid fa-bars"></i>
+</button>
+<h5 class="mb-0 fw-bold text-dark fs-6 fs-md-5 text-truncate" id="topbarTitle">User Dashboard</h5>
+</div>
+<div class="d-flex align-items-center gap-3 ms-auto">
+
+<div class="d-flex align-items-center gap-2">
+<div class="d-none d-lg-block text-end">
+<p class="mb-0 fw-bold small text-dark">Creator Studio</p>
+<p class="mb-0 text-muted user-email-display" style="font-size: 0.7rem;">creator@stackly.app</p>
+</div>
+<img alt="User" class="rounded-circle ms-2" height="35" src="https://ui-avatars.com/api/?name=User&amp;background=10B981&amp;color=fff" width="35"/>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="dashboard-content">
+<!-- Dashboard Section -->
+<div class="content-section" id="dashboard-section">
+<!-- Profile Summary -->
+<div class="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden">
+<div style="height: 120px; background: linear-gradient(135deg, var(--primary-color) 0%, #1e1b4b 100%);"></div>
+<div class="card-body position-relative px-4 pb-4 pt-0">
+<img alt="Avatar" class="rounded-circle border border-4 border-white position-absolute" src="https://ui-avatars.com/api/?name=User&amp;background=10B981&amp;color=fff&amp;size=100" style="top: -50px; left: 30px;"/>
+<div class="ms-12" style="margin-left: 120px; padding-top: 1rem;">
+<div class="d-flex justify-content-between align-items-start flex-wrap">
+<div>
+<h4 class="fw-bold mb-0">The Daily Streamer <i class="fa-solid fa-circle-check text-primary ms-1 fs-6"></i></h4>
+<p class="text-muted small mb-0">@dailystreamer • 120 Videos</p>
+</div>
+<button class="btn btn-outline-dark btn-sm rounded-pill mt-2 mt-sm-0" onclick="window.location.href='404.html'">Edit Profile</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Overview Cards -->
+<div class="row g-4 mb-4">
+<div class="col-xl-3 col-md-6">
+<div class="stat-card">
+<div class="stat-icon bg-danger text-white">
+<i class="fa-brands fa-youtube"></i>
+</div>
+<div class="stat-details">
+<p>Subscribers</p>
+<h3>45.2K</h3>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-md-6">
+<div class="stat-card">
+<div class="stat-icon bg-primary text-white">
+<i class="fa-solid fa-eye"></i>
+</div>
+<div class="stat-details">
+<p>Total Views</p>
+<h3>1.8M</h3>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-md-6">
+<div class="stat-card">
+<div class="stat-icon bg-info text-white">
+<i class="fa-solid fa-clock"></i>
+</div>
+<div class="stat-details">
+<p>Watch Time (Hrs)</p>
+<h3>12.5K</h3>
+</div>
+</div>
+</div>
+<div class="col-xl-3 col-md-6">
+<div class="stat-card">
+<div class="stat-icon bg-success text-white">
+<i class="fa-solid fa-dollar-sign"></i>
+</div>
+<div class="stat-details">
+<p>Est. Revenue</p>
+<h3>$3,420</h3>
+</div>
+</div>
+</div>
+</div>
+<!-- Charts Row -->
+<div class="row g-4 mb-5">
+<div class="col-lg-8">
+<div class="chart-container">
+<div class="chart-header">
+<h3 class="chart-title">Channel Views (Last 7 Days)</h3>
+</div>
+<div style="height: 300px;">
+<canvas id="viewsChart"></canvas>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="chart-container">
+<div class="chart-header">
+<h3 class="chart-title">Traffic Sources</h3>
+</div>
+<div style="height: 300px; display: flex; justify-content: center;">
+<canvas id="sourcesChart"></canvas>
+</div>
+</div>
+</div>
+</div>
+<!-- Content Grid (Recent Uploads & Watch Later) -->
+<div class="row g-4">
+<div class="col-lg-6">
+<div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h5 class="fw-bold mb-0">Recent Uploads</h5>
+<a class="text-primary text-decoration-none small" href="404.html">See All</a>
+</div>
+<div class="d-flex flex-column gap-3">
+<!-- Video Item -->
+<div class="d-flex align-items-center gap-3 border-bottom pb-3 hover-scale transition" onclick="window.location.href='404.html'" style="cursor:pointer;">
+<div class="position-relative">
+<img alt="Video" class="rounded" src="images/unsplash-8e2349fcdc.webp" width="120"/>
+<span class="position-absolute bottom-0 end-0 bg-dark text-white small px-1 m-1 rounded" style="font-size: 0.7rem;">12:45</span>
+</div>
+<div>
+<h6 class="fw-bold mb-1 text-dark small">My Ultimate Gaming Setup 2026</h6>
+<p class="text-muted small mb-0">15K views • 2 days ago</p>
+<span class="badge bg-success bg-opacity-10 text-success mt-1" style="font-size: 0.65rem;">Public</span>
+</div>
+</div>
+<!-- Video Item -->
+<div class="d-flex align-items-center gap-3 hover-scale transition" onclick="window.location.href='404.html'" style="cursor:pointer;">
+<div class="position-relative">
+<img alt="Video" class="rounded" src="images/unsplash-d99aa00a20.webp" width="120"/>
+<span class="position-absolute bottom-0 end-0 bg-dark text-white small px-1 m-1 rounded" style="font-size: 0.7rem;">08:20</span>
+</div>
+<div>
+<h6 class="fw-bold mb-1 text-dark small">Top 5 Productivity Apps</h6>
+<p class="text-muted small mb-0">8K views • 5 days ago</p>
+<span class="badge bg-success bg-opacity-10 text-success mt-1" style="font-size: 0.65rem;">Public</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h5 class="fw-bold mb-0">Watch Later &amp; Playlists</h5>
+<a class="text-primary text-decoration-none small" href="404.html">Library</a>
+</div>
+<div class="d-flex flex-column gap-3">
+<!-- Playlist Item -->
+<div class="d-flex align-items-center gap-3 border-bottom pb-3">
+<div class="bg-secondary bg-opacity-10 text-secondary rounded d-flex align-items-center justify-content-center" style="width: 120px; height: 68px;">
+<i class="fa-solid fa-clock fs-3"></i>
+</div>
+<div>
+<h6 class="fw-bold mb-1 text-dark small">Watch Later</h6>
+<p class="text-muted small mb-0">24 unwatched videos</p>
+</div>
+<button class="btn btn-light btn-sm rounded-circle ms-auto" onclick="window.location.href='404.html'"><i class="fa-solid fa-play text-dark"></i></button>
+</div>
+<!-- Playlist Item -->
+<div class="d-flex align-items-center gap-3">
+<div class="position-relative rounded overflow-hidden" style="width: 120px; height: 68px;">
+<img alt="Playlist" class="w-100 h-100 object-fit-cover" src="images/unsplash-7298b4e579.webp"/>
+<div class="position-absolute top-0 end-0 bottom-0 bg-dark bg-opacity-75 d-flex flex-column justify-content-center align-items-center text-white px-2">
+<span class="fw-bold small">12</span>
+<i class="fa-solid fa-list fs-6"></i>
+</div>
+</div>
+<div>
+<h6 class="fw-bold mb-1 text-dark small">Web Dev Tutorials</h6>
+<p class="text-muted small mb-0">Updated yesterday</p>
+</div>
+<button class="btn btn-light btn-sm rounded-circle ms-auto" onclick="window.location.href='404.html'"><i class="fa-solid fa-play text-dark"></i></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- End Dashboard Section -->
+<!-- My Videos Section -->
+<div class="content-section d-none" id="videos-section">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h2 class="fw-bold mb-0">My Videos</h2>
+<button class="btn btn-primary rounded-pill px-4" onclick="window.location.href='404.html'"><i class="fa-solid fa-upload me-2"></i>Upload Video</button>
+</div>
+<div class="row g-4">
+<div class="col-md-6 col-xl-4">
+<div class="card border-0 shadow-sm rounded-4 h-100 overflow-hidden hover-scale transition" onclick="window.location.href='404.html'" style="cursor:pointer;">
+<div class="position-relative">
+<img alt="Video" class="card-img-top" src="images/unsplash-1744ce7337.webp"/>
+<span class="position-absolute bottom-0 end-0 bg-dark text-white small px-2 py-1 m-2 rounded">12:45</span>
+</div>
+<div class="card-body">
+<h6 class="fw-bold mb-2 text-dark">My Ultimate Gaming Setup 2026</h6>
+<p class="text-muted small mb-3">Published 2 days ago</p>
+<div class="d-flex justify-content-between text-muted small border-top pt-3">
+<span><i class="fa-solid fa-eye me-1"></i> 15K</span>
+<span><i class="fa-solid fa-thumbs-up me-1"></i> 1.2K</span>
+<span><i class="fa-solid fa-comment me-1"></i> 340</span>
+</div>
+</div>
+<div class="card-footer bg-white border-0 text-end p-3 pb-4">
+<button class="btn btn-sm btn-outline-dark rounded-pill px-3" onclick="window.location.href='404.html'">Edit Details</button>
+</div>
+</div>
+</div>
+<div class="col-md-6 col-xl-4">
+<div class="card border-0 shadow-sm rounded-4 h-100 overflow-hidden hover-scale transition" onclick="window.location.href='404.html'" style="cursor:pointer;">
+<div class="position-relative">
+<img alt="Video" class="card-img-top" src="images/unsplash-1fb2aa55b1.webp"/>
+<span class="position-absolute bottom-0 end-0 bg-dark text-white small px-2 py-1 m-2 rounded">08:20</span>
+</div>
+<div class="card-body">
+<h6 class="fw-bold mb-2 text-dark">Top 5 Productivity Apps</h6>
+<p class="text-muted small mb-3">Published 5 days ago</p>
+<div class="d-flex justify-content-between text-muted small border-top pt-3">
+<span><i class="fa-solid fa-eye me-1"></i> 8K</span>
+<span><i class="fa-solid fa-thumbs-up me-1"></i> 890</span>
+<span><i class="fa-solid fa-comment me-1"></i> 150</span>
+</div>
+</div>
+<div class="card-footer bg-white border-0 text-end p-3 pb-4">
+<button class="btn btn-sm btn-outline-dark rounded-pill px-3" onclick="window.location.href='404.html'">Edit Details</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Analytics Section -->
+<div class="content-section d-none" id="analytics-section">
+<h2 class="fw-bold mb-4">Channel Analytics</h2>
+<div class="row g-4 mb-4">
+<div class="col-md-4">
+<div class="card border-0 shadow-sm rounded-4 p-4 text-center">
+<h6 class="text-muted fw-bold mb-3">Subscribers Gained (Last 28 Days)</h6>
+<h2 class="text-success fw-bold mb-0">+1,240</h2>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card border-0 shadow-sm rounded-4 p-4 text-center">
+<h6 class="text-muted fw-bold mb-3">Average View Duration</h6>
+<h2 class="text-primary fw-bold mb-0">4m 12s</h2>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card border-0 shadow-sm rounded-4 p-4 text-center">
+<h6 class="text-muted fw-bold mb-3">Click-Through Rate (CTR)</h6>
+<h2 class="text-warning fw-bold mb-0">8.4%</h2>
+</div>
+</div>
+</div>
+<div class="card border-0 shadow-sm rounded-4 p-4 text-center text-muted" style="height: 300px; display: flex; align-items: center; justify-content: center;">
+<div>
+<i class="fa-solid fa-chart-area fs-1 mb-3 text-light"></i>
+<h4>Audience Retention Data Loading...</h4>
+</div>
+</div>
+</div>
+<!-- Comments Section -->
+<div class="content-section d-none" id="comments-section">
+<h2 class="fw-bold mb-4">Comments Manager</h2>
+<div class="card border-0 shadow-sm rounded-4 p-4 mb-3">
+<div class="d-flex gap-3">
+<img alt="Avatar" class="rounded-circle" height="45" src="https://ui-avatars.com/api/?name=Sam+Smith&amp;background=E2E8F0&amp;color=000" width="45"/>
+<div class="flex-grow-1">
+<div class="d-flex justify-content-between align-items-center mb-1">
+<h6 class="fw-bold mb-0">@SamSmith20</h6>
+<span class="small text-muted">2 hours ago</span>
+</div>
+<p class="small text-muted mb-1">On: <span class="fw-medium text-dark">My Ultimate Gaming Setup 2026</span></p>
+<p class="mb-3 text-dark">This is incredible! Can you link the monitor arm you used in the description?</p>
+<div class="d-flex align-items-center gap-3">
+<button class="btn btn-sm btn-light rounded-pill px-3 text-danger" onclick="window.location.href='404.html'"><i class="fa-regular fa-heart me-1"></i> Love</button>
+<button class="btn btn-sm btn-light rounded-pill px-3" onclick="window.location.href='404.html'"><i class="fa-solid fa-reply me-1"></i> Reply</button>
+<button class="btn btn-sm btn-light rounded-pill px-3 ms-auto" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash me-1"></i> Remove</button>
+</div>
+</div>
+</div>
+</div>
+<div class="card border-0 shadow-sm rounded-4 p-4 mb-3">
+<div class="d-flex gap-3">
+<img alt="Avatar" class="rounded-circle" height="45" src="https://ui-avatars.com/api/?name=Jane+Doe&amp;background=E2E8F0&amp;color=000" width="45"/>
+<div class="flex-grow-1">
+<div class="d-flex justify-content-between align-items-center mb-1">
+<h6 class="fw-bold mb-0">@JaneDev</h6>
+<span class="small text-muted">5 hours ago</span>
+</div>
+<p class="small text-muted mb-1">On: <span class="fw-medium text-dark">Top 5 Productivity Apps</span></p>
+<p class="mb-3 text-dark">Great recommendations. I started using App #3 yesterday and it's already saving me time!</p>
+<div class="d-flex align-items-center gap-3">
+<button class="btn btn-sm btn-danger bg-opacity-10 text-danger rounded-pill px-3" onclick="window.location.href='404.html'"><i class="fa-solid fa-heart me-1"></i> Loved</button>
+<button class="btn btn-sm btn-light rounded-pill px-3" onclick="window.location.href='404.html'"><i class="fa-solid fa-reply me-1"></i> Reply</button>
+<button class="btn btn-sm btn-light rounded-pill px-3 ms-auto" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash me-1"></i> Remove</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- History Section -->
+<div class="content-section d-none" id="history-section">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h2 class="fw-bold mb-0">Watch History</h2>
+<button class="btn btn-outline-danger rounded-pill px-4" onclick="window.location.href='404.html'">Clear History</button>
+</div>
+<div class="d-flex flex-column gap-3">
+<div class="d-flex align-items-start gap-4 p-3 bg-white rounded-4 shadow-sm border border-light hover-scale transition" onclick="window.location.href='404.html'" style="cursor:pointer;">
+<div class="position-relative">
+<img alt="Video" class="rounded-3" src="images/unsplash-03de8720b8.webp" width="160"/>
+<div class="progress position-absolute bottom-0 start-0 w-100 rounded-0 rounded-bottom" style="height: 4px;">
+<div class="progress-bar bg-danger" style="width: 100%"></div>
+</div>
+</div>
+<div class="flex-grow-1">
+<h5 class="fw-bold mb-1">Social Media Marketing 101</h5>
+<p class="text-muted small mb-2">TechWorld • 250K views</p>
+<p class="text-muted small mb-0">Watched today</p>
+</div>
+<button class="btn btn-light rounded-circle" onclick="window.location.href='404.html'"><i class="fa-solid fa-xmark"></i></button>
+</div>
+<div class="d-flex align-items-start gap-4 p-3 bg-white rounded-4 shadow-sm border border-light hover-scale transition" onclick="window.location.href='404.html'" style="cursor:pointer;">
+<div class="position-relative">
+<img alt="Video" class="rounded-3" src="images/unsplash-53c3b23451.webp" width="160"/>
+<div class="progress position-absolute bottom-0 start-0 w-100 rounded-0 rounded-bottom" style="height: 4px;">
+<div class="progress-bar bg-danger" style="width: 45%"></div>
+</div>
+</div>
+<div class="flex-grow-1">
+<h5 class="fw-bold mb-1">Building a Startup in 2026</h5>
+<p class="text-muted small mb-2">StartupLife • 1.2M views</p>
+<p class="text-muted small mb-0">Watched yesterday</p>
+</div>
+<button class="btn btn-light rounded-circle" onclick="window.location.href='404.html'"><i class="fa-solid fa-xmark"></i></button>
+</div>
+</div>
+</div>
+<!-- Saved Playlists Section -->
+<div class="content-section d-none" id="playlists-section">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h2 class="fw-bold mb-0">Saved Playlists</h2>
+<button class="btn btn-outline-dark rounded-pill px-4" onclick="window.location.href='404.html'"><i class="fa-solid fa-plus me-2"></i>New Playlist</button>
+</div>
+<div class="row g-4">
+<div class="col-md-4">
+<div class="card border-0 shadow-sm rounded-4 h-100 overflow-hidden hover-scale transition cursor-pointer">
+<div class="position-relative bg-dark" style="height: 140px;">
+<div class="position-absolute top-0 end-0 bottom-0 bg-dark bg-opacity-75 d-flex flex-column justify-content-center align-items-center text-white px-3" style="width: 40%;">
+<span class="fw-bold fs-5">12</span>
+<i class="fa-solid fa-list mt-1"></i>
+</div>
+<img alt="Playlist" class="w-100 h-100 object-fit-cover opacity-75" src="images/unsplash-7c8a169ba1.webp"/>
+</div>
+<div class="card-body">
+<h6 class="fw-bold mb-1">Retro Gaming Music</h6>
+<p class="text-muted small mb-0">Updated 2 days ago</p>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card border-0 shadow-sm rounded-4 h-100 overflow-hidden hover-scale transition cursor-pointer">
+<div class="position-relative bg-dark" style="height: 140px;">
+<div class="position-absolute top-0 end-0 bottom-0 bg-dark bg-opacity-75 d-flex flex-column justify-content-center align-items-center text-white px-3" style="width: 40%;">
+<span class="fw-bold fs-5">45</span>
+<i class="fa-solid fa-list mt-1"></i>
+</div>
+<img alt="Playlist" class="w-100 h-100 object-fit-cover opacity-75" src="images/unsplash-fa95b44852.webp"/>
+</div>
+<div class="card-body">
+<h6 class="fw-bold mb-1">Web Dev Masterclass</h6>
+<p class="text-muted small mb-0">Updated last week</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Watch Later Section -->
+<div class="content-section d-none" id="watchlater-section">
+<div class="d-flex justify-content-between align-items-center mb-4">
+<h2 class="fw-bold mb-0">Watch Later</h2>
+<button class="btn btn-primary rounded-pill px-4" onclick="window.location.href='404.html'"><i class="fa-solid fa-play me-2"></i>Play All</button>
+</div>
+<div class="d-flex flex-column gap-3">
+<div class="d-flex align-items-center gap-4 p-3 bg-white rounded-4 shadow-sm border border-light hover-scale transition" onclick="window.location.href='404.html'" style="cursor:pointer;">
+<i class="fa-solid fa-bars text-muted ms-2 cursor-pointer"></i>
+<img alt="Video" class="rounded-3" src="images/unsplash-03de8720b8.webp" width="120"/>
+<div class="flex-grow-1">
+<h6 class="fw-bold mb-1">Social Media Marketing 101</h6>
+<p class="text-muted small mb-0">TechWorld • Added today</p>
+</div>
+<button class="btn btn-light rounded-circle me-2" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash text-danger"></i></button>
+</div>
+<div class="d-flex align-items-center gap-4 p-3 bg-white rounded-4 shadow-sm border border-light hover-scale transition" onclick="window.location.href='404.html'" style="cursor:pointer;">
+<i class="fa-solid fa-bars text-muted ms-2 cursor-pointer"></i>
+<img alt="Video" class="rounded-3" src="images/unsplash-53c3b23451.webp" width="120"/>
+<div class="flex-grow-1">
+<h6 class="fw-bold mb-1">Building a Startup in 2026</h6>
+<p class="text-muted small mb-0">StartupLife • Added 3 days ago</p>
+</div>
+<button class="btn btn-light rounded-circle me-2" onclick="window.location.href='404.html'"><i class="fa-solid fa-trash text-danger"></i></button>
+</div>
+</div>
+</div>
+<!-- Profile Section -->
+<div class="content-section d-none" id="profile-section">
+<h2 class="fw-bold mb-4">Profile Settings</h2>
+<div class="card border-0 shadow-sm rounded-4 p-4">
+<div class="row g-5">
+<div class="col-md-4 text-center">
+<img alt="Avatar" class="rounded-circle mb-3 border border-4 border-light shadow-sm" src="https://ui-avatars.com/api/?name=User&amp;background=10B981&amp;color=fff&amp;size=150"/>
+<div>
+<button class="btn btn-outline-primary rounded-pill btn-sm px-4 mb-2" onclick="window.location.href='404.html'">Change Avatar</button>
+</div>
+<p class="small text-muted mt-3">Recommended size: 800x800px. JPG or PNG.</p>
+</div>
+<div class="col-md-8">
+<div class="mb-3">
+<label class="form-label fw-bold">Channel Name</label>
+<input class="form-control rounded-3" type="text" value="The Daily Streamer"/>
+</div>
+<div class="mb-3">
+<label class="form-label fw-bold">Handle</label>
+<div class="input-group">
+<span class="input-group-text bg-light border-end-0 text-muted">@</span>
+<input class="form-control rounded-end-3 border-start-0" type="text" value="dailystreamer"/>
+</div>
+</div>
+<div class="mb-4">
+<label class="form-label fw-bold">Bio</label>
+<textarea class="form-control rounded-3" rows="4">I stream daily content about technology, gaming, and lifestyle.</textarea>
+</div>
+<div class="border-top pt-4 text-end">
+<button class="btn btn-light rounded-pill px-4 me-2" onclick="window.location.href='404.html'">Cancel</button>
+<button class="btn btn-primary rounded-pill px-4" onclick="window.location.href='404.html'">Save Changes</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Custom User Logic -->
+<script src="assets/js/user.js?v=4"></script>
+<script src="assets/js/force-404.js?v=4"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+/* ==========================================================================
+   Stackly - Authentication CSS (Login & Signup)
+   ========================================================================== */
+
+/* Split Screen Layout */
+.auth-wrapper {
+    height: 100vh; overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--bg-dark); /* Fallback */
+}
+
+.auth-sidebar {
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: none;
+    height: 100vh; /* Hidden on mobile */
+    background: linear-gradient(135deg, var(--bg-dark) 0%, #0f172a 100%);
+}
+
+.auth-sidebar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1616469829581-73993eb86b02?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+
+.auth-sidebar::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+}
+.auth-sidebar-content {
+    z-index: 2; /* increased so it sits above the overlay */
+
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem;
+    color: white;
+}
+
+.auth-form-container {
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    overflow-y: auto;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem;
+    background-color: var(--surface-color);
+}
+
+.auth-card {
+    margin: auto;
+    width: 100%;
+    max-width: 450px;
+    background: var(--bg-light);
+    padding: 3rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--border-color);
+}
+
+/* Custom Role Selector */
+.role-selector {
+    display: flex;
+    background: var(--surface-color);
+    border-radius: var(--radius-lg);
+    padding: 0.25rem;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+
+.role-selector input[type="radio"] {
+    display: none;
+}
+
+.role-selector label {
+    flex: 1;
+    text-align: center;
+    padding: 0.75rem 0.5rem;
+    cursor: pointer;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    min-height: 50px;
+}
+
+@media (max-width: 576px) {
+    .role-selector label {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+    }
+}
+
+.role-selector input[type="radio"]:checked + label {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+/* Form Styles */
+.form-floating > .form-control {
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    background-color: var(--surface-color);
+}
+
+.form-floating > .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(37, 99, 235, 0.25);
+}
+
+.password-toggle {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-secondary);
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+    color: var(--primary-color);
+}
+
+/* Media Queries for Split Screen */
+@media (min-width: 992px) {
+    .auth-sidebar {
+        display: block;
+        width: 50%;
+    }
+    .auth-form-container {
+        width: 50%;
+    }
+}
+
+.custom-input-group:focus-within { border-color: var(--primary-color) !important; box-shadow: 0 0 0 0.25rem rgba(37, 99, 235, 0.25); }
+
+/* Remove default Edge/IE password reveal icon */
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+}
+

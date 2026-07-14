@@ -1,0 +1,279 @@
+/* ==========================================================================
+   Stackly - Dashboard CSS (Shared Admin & User)
+   ========================================================================== */
+
+:root {
+    --sidebar-width: 260px;
+    --sidebar-collapsed: 80px;
+    --topbar-height: 70px;
+    --bg-light: #ffffff;
+}
+
+body {
+    background-color: #f8fafc; /* Very light slate for dashboard backgrounds */
+}
+
+/* Layout Grid */
+.dashboard-layout {
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* Sidebar Navigation */
+.dashboard-sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--bg-light);
+    border-right: 1px solid var(--border-color);
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    transition: transform 0.3s ease, width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-header {
+    height: var(--topbar-height);
+    display: flex;
+    align-items: center;
+    padding: 0 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar-menu {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 1.5rem 1rem;
+}
+
+.menu-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin: 1.5rem 0 0.5rem 1rem;
+    display: block;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+.menu-item i {
+    width: 24px;
+    font-size: 1.1rem;
+    margin-right: 0.75rem;
+    text-align: center;
+}
+
+.menu-item:hover, .menu-item.active {
+    background-color: rgba(37, 99, 235, 0.1);
+    color: var(--primary-color);
+}
+
+.menu-item.active {
+    font-weight: 600;
+}
+
+.sidebar-footer {
+    padding: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Main Content Area */
+.dashboard-main {
+    flex-grow: 1;
+    margin-left: var(--sidebar-width);
+    min-width: 0; /* Prevent overflow */
+    display: flex;
+    flex-direction: column;
+    transition: margin-left 0.3s ease;
+}
+
+/* Top Navbar */
+.dashboard-topbar {
+    height: var(--topbar-height);
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+}
+
+.mobile-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+/* Dashboard Content */
+.dashboard-content {
+    padding: 2rem;
+    flex-grow: 1;
+}
+
+/* Overview Cards */
+.stat-card {
+    background: var(--bg-light);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    transition: var(--transition-normal);
+    height: 100%;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-right: 1.25rem;
+}
+
+.stat-details h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0;
+    color: var(--text-primary);
+}
+
+.stat-details p {
+    color: var(--text-muted);
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+/* Chart Containers */
+.chart-container {
+    background: var(--bg-light);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    height: 100%;
+    min-height: 350px;
+    position: relative;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.chart-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Tables */
+.table-container {
+    background: var(--bg-light);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.custom-table {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.custom-table th {
+    background-color: #f8fafc;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.5px;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.custom-table td {
+    padding: 1rem 1.5rem;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-secondary);
+}
+
+.custom-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Badges */
+.status-badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 50rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+.status-success { background-color: rgba(16, 185, 129, 0.1); color: #10B981; }
+.status-warning { background-color: rgba(245, 158, 11, 0.1); color: #F59E0B; }
+.status-danger { background-color: rgba(239, 68, 68, 0.1); color: #EF4444; }
+.status-primary { background-color: rgba(37, 99, 235, 0.1); color: #2563EB; }
+.status-secondary { background-color: rgba(100, 116, 139, 0.1); color: #64748b; }
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .dashboard-sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .dashboard-sidebar.show {
+        transform: translateX(0);
+        box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+    }
+    
+    .dashboard-main {
+        margin-left: 0;
+    }
+    
+    .mobile-toggle {
+        display: block;
+    }
+
+    .dashboard-content {
+        padding: 1.5rem 1rem;
+    }
+}
+
+/* Utility to prevent scrolling when mobile sidebar is open */
+.body-no-scroll {
+    overflow: hidden;
+}
