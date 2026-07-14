@@ -703,8 +703,32 @@ a:hover {
 
 /* Custom Carousel Styles */
 .custom-indicators { margin-bottom: 2rem; }
-.custom-indicators button { width: 12px; height: 12px; border-radius: 50%; margin: 0 6px; background-color: rgba(255, 255, 255, 0.5); border: 2px solid transparent; transition: all 0.3s ease; }
-.custom-indicators button.active { background-color: var(--primary-color); border-color: rgba(255, 255, 255, 0.8); transform: scale(1.3); }
+.custom-indicators button { 
+    width: 10px !important; 
+    height: 10px !important; 
+    border-radius: 50% !important; 
+    margin: 0 8px !important; 
+    background-color: rgba(255, 255, 255, 0.4) !important; 
+    border: none !important; 
+    padding: 0 !important;
+    transition: all 0.3s ease !important; 
+}
+.custom-indicators button.active { 
+    background-color: var(--primary-color) !important; 
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9) !important; 
+    transform: scale(1.2) !important; 
+}
+
+/* Hero Button Fonts */
+.hero-section .btn {
+    font-size: 0.875rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.3px;
+    padding: 0.75rem 2rem !important;
+}
+.hero-section .btn-lg {
+    padding: 0.8rem 2.5rem !important;
+}
 .custom-control-prev, .custom-control-next { width: 50px; height: 50px; background: rgba(255, 255, 255, 0.2); border-radius: 50%; top: 50%; transform: translateY(-50%); opacity: 0; transition: all 0.3s ease; backdrop-filter: blur(5px); }
 .hero-section:hover .custom-control-prev, .hero-section:hover .custom-control-next { opacity: 1; }
 .custom-control-prev { left: 2rem; }
@@ -717,4 +741,13 @@ a:hover {
 .hero-content-block h1 { color: #8faec2 !important; }
 .hero-content-block h1 span { color: #ffffff !important; display: block; }
 .hero-content-block .btn-light { border-radius: 4px !important; font-weight: 600; padding: 12px 30px !important; }
+
+
+
+/* Contact Form Placeholders */
+#contactForm .form-control::placeholder, #contactForm .form-select::placeholder {
+    font-size: 0.85rem;
+    opacity: 0.7;
+    transform: translateY(1px);
+}
 

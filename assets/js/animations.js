@@ -91,4 +91,15 @@ document.addEventListener('DOMContentLoaded', () => {
         link.addEventListener('click', e => e.preventDefault());
     });
 
+    // --- 6. Mobile Menu Scroll Lock ---
+    const navbarCollapse = document.getElementById('navbarContent');
+    if (navbarCollapse) {
+        navbarCollapse.addEventListener('show.bs.collapse', () => {
+            document.body.style.overflow = 'hidden';
+        });
+        navbarCollapse.addEventListener('hide.bs.collapse', () => {
+            document.body.style.overflow = '';
+        });
+    }
+
 });

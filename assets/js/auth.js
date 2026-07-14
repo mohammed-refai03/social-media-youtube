@@ -30,12 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Check HTML5 validation
-            if (!this.checkValidity()) {
-                e.stopPropagation();
-                this.classList.add('was-validated');
-                return;
-            }
+
             
             // Get selected role
             const role = document.querySelector('input[name="role"]:checked').value;
@@ -77,20 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
             
-            // Check HTML5 validation
-            if (!this.checkValidity()) {
-                e.stopPropagation();
-                this.classList.add('was-validated');
-                
-                // Extra check for matching passwords (native constraint API)
-                if(password !== confirmPassword) {
-                     document.getElementById('confirmPassword').setCustomValidity("Passwords do not match.");
-                     document.getElementById('confirmPassword').reportValidity();
-                } else {
-                     document.getElementById('confirmPassword').setCustomValidity("");
-                }
-                return;
-            }
+
             
             if(password !== confirmPassword) {
                 document.getElementById('confirmPassword').setCustomValidity("Passwords do not match.");

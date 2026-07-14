@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (catGrid) {
         catGrid.innerHTML = exploreCats.map(c => `
             <div class="col-6 col-md-4 col-lg-3 gs-stagger">
-                <div class="explore-cat-card position-relative rounded-4 overflow-hidden shadow-sm group-hover-zoom" style="height: 120px; cursor: pointer;">
+                <div class="explore-cat-card position-relative rounded-4 overflow-hidden shadow-sm group-hover-zoom" style="height: 120px; cursor: pointer;" onclick="window.location.href='404.html'">
                     <img src="${c.img}" alt="${c.name}" class="w-100 h-100" style="object-fit: cover;">
                     <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center bg-dark bg-opacity-50 hover-bg-dark transition">
                         <h5 class="text-white fw-bold mb-0 shadow-sm">${c.name}</h5>

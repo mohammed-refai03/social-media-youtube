@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h5 class="fw-bold mb-1">${member.name}</h5>
                     <p class="text-primary small mb-3 fw-medium">${member.role}</p>
                     <div class="d-flex gap-2 justify-content-center">
-                        <a href="#" class="text-muted hover-primary transition"><i class="fa-brands fa-linkedin fs-5"></i></a>
-                        <a href="#" class="text-muted hover-primary transition"><i class="fa-brands fa-twitter fs-5"></i></a>
+                        <a href="404.html" class="text-muted hover-primary transition"><i class="fa-brands fa-linkedin fs-5"></i></a>
+                        <a href="404.html" class="text-muted hover-primary transition"><i class="fa-brands fa-twitter fs-5"></i></a>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,13 @@ document.addEventListener('DOMContentLoaded', () => {
         { title: "Behind the Scenes at Stackly HQ", category: "Community", date: "June 25, 2026", readTime: "5 min", thumb: "images/unsplash-ad03a1ebad.webp", excerpt: "Take a tour of our new office and meet the people building the platform." },
         { title: "Mastering Video Analytics", category: "Creators", date: "June 20, 2026", readTime: "7 min", thumb: "images/unsplash-6fa775e6ab.webp", excerpt: "Learn how to read and interpret your analytics to skyrocket your growth." },
         { title: "Stackly Partner Program Expanded", category: "Updates", date: "June 15, 2026", readTime: "3 min", thumb: "images/unsplash-c493b756e8.webp", excerpt: "We've lowered the requirements for our partner program. See if you qualify." },
-        { title: "Best Lighting Setups on a Budget", category: "Gear", date: "June 10, 2026", readTime: "5 min", thumb: "images/unsplash-e3364f6a0a.webp", excerpt: "You don't need to spend thousands to have incredible lighting in your videos." }
+        { title: "Best Lighting Setups on a Budget", category: "Gear", date: "June 10, 2026", readTime: "5 min", thumb: "images/unsplash-e3364f6a0a.webp", excerpt: "You don't need to spend thousands to have incredible lighting in your videos." },
+        { title: "How to Edit Faster in Premiere Pro", category: "Tutorials", date: "June 5, 2026", readTime: "6 min", thumb: "images/unsplash-0fb80d6bad.webp", excerpt: "Keyboard shortcuts and workflow hacks to cut your editing time in half." },
+        { title: "Understanding the New Algorithm", category: "Updates", date: "June 1, 2026", readTime: "4 min", thumb: "images/unsplash-68868ec981.webp", excerpt: "A breakdown of how our new recommendation engine surfaces your content." },
+        { title: "Top 5 Microphones for Streaming", category: "Gear", date: "May 28, 2026", readTime: "5 min", thumb: "images/unsplash-7927efa233.webp", excerpt: "Audio is half the experience. Ensure you sound crystal clear with these mics." },
+        { title: "Collaborating with Other Creators", category: "Community", date: "May 22, 2026", readTime: "7 min", thumb: "images/unsplash-1b6873a3ba.webp", excerpt: "How to network, plan, and execute collaborations that benefit both channels." },
+        { title: "The Future of Live Streaming", category: "Industry", date: "May 15, 2026", readTime: "9 min", thumb: "images/unsplash-706b3200a7.webp", excerpt: "Interactive overlays, low latency, and what to expect in the next 5 years." },
+        { title: "Dealing with Creator Burnout", category: "Mental Health", date: "May 10, 2026", readTime: "6 min", thumb: "images/unsplash-093d86c87d.webp", excerpt: "Recognizing the signs and taking steps to protect your peace and creativity." }
     ];
 
     const blogGrid = document.getElementById('blog-grid');
@@ -70,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class="text-muted small mb-2">${post.date} • ${post.readTime} read</p>
                         <h5 class="fw-bold mb-3">${post.title}</h5>
                         <p class="text-muted small mb-4 flex-grow-1">${post.excerpt}</p>
-                        <a href="#" class="btn btn-outline-primary rounded-pill w-100 fw-medium mt-auto hover-scale transition">Read Article</a>
+                        <a href="404.html" class="btn btn-outline-primary rounded-pill w-100 fw-medium mt-auto hover-scale transition">Read Article</a>
                     </div>
                 </div>
             </div>

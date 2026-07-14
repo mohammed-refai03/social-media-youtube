@@ -100,6 +100,7 @@ body {
     display: flex;
     flex-direction: column;
     transition: margin-left 0.3s ease;
+    padding-top: var(--topbar-height);
 }
 
 /* Top Navbar */
@@ -109,13 +110,16 @@ body {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
-    position: sticky;
+    position: fixed;
     top: 0;
+    right: 0;
+    width: calc(100% - var(--sidebar-width));
     z-index: 999;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 2rem;
+    transition: width 0.3s ease;
 }
 
 .mobile-toggle {
@@ -262,6 +266,10 @@ body {
     
     .dashboard-main {
         margin-left: 0;
+    }
+    
+    .dashboard-topbar {
+        width: 100%;
     }
     
     .mobile-toggle {

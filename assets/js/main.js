@@ -15,6 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- 1.5 Navbar Body Scroll Lock ---
+    const navbarContent = document.getElementById('navbarContent');
+    if (navbarContent) {
+        navbarContent.addEventListener('show.bs.collapse', () => {
+            document.body.classList.add('body-no-scroll');
+        });
+        navbarContent.addEventListener('hide.bs.collapse', () => {
+            document.body.classList.remove('body-no-scroll');
+        });
+    }
+
     // --- 2. Data Population ---
 
     // Categories Data
@@ -102,14 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Shorts Data
     const shortsData = [
-        { title: "Crazy Gaming Setup", creator: "TechBro", views: "2M", thumb: "images/unsplash-8f59b8cc74.webp" },
-        { title: "Quick CSS Trick", creator: "CodeNinja", views: "800K", thumb: "images/unsplash-0fb80d6bad.webp" },
-        { title: "Sunset Timelapse", creator: "NatureLove", views: "1.5M", thumb: "images/unsplash-0b3fdd0f4b.webp" },
-        { title: "Street Food Tour", creator: "Foodie", views: "4M", thumb: "images/unsplash-e5a61d623a.webp" },
-        { title: "Workout Motivation", creator: "FitLife", views: "1.2M", thumb: "images/unsplash-e6bb15eea0.webp" },
-        { title: "Piano Cover", creator: "MusicMaker", views: "500K", thumb: "images/unsplash-b64d7cdf0b.webp" },
-        { title: "DIY Room Decor", creator: "Crafty", views: "3M", thumb: "images/unsplash-a9443d8012.webp" },
-        { title: "Funny Cat Moment", creator: "PetLovers", views: "10M", thumb: "images/unsplash-7761e194b5.webp" },
+        { title: "Crazy Gaming Setup", creator: "TechBro", views: "2M", thumb: "images/short_gaming.webp" },
+        { title: "Quick CSS Trick", creator: "CodeNinja", views: "800K", thumb: "images/short_css.webp" },
+        { title: "Sunset Timelapse", creator: "NatureLove", views: "1.5M", thumb: "images/short_sunset.webp" },
+        { title: "Street Food Tour", creator: "Foodie", views: "4M", thumb: "images/short_food.webp" },
+        { title: "Workout Motivation", creator: "FitLife", views: "1.2M", thumb: "images/short_workout.webp" },
+        { title: "Piano Cover", creator: "MusicMaker", views: "500K", thumb: "images/short_piano.webp" },
+        { title: "DIY Room Decor", creator: "Crafty", views: "3M", thumb: "images/short_decor.webp" },
+        { title: "Funny Cat Moment", creator: "PetLovers", views: "10M", thumb: "images/short_cat.webp" },
     ];
 
     const shortsContainer = document.getElementById('shorts-container');
