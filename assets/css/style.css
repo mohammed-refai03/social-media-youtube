@@ -193,7 +193,20 @@ a:hover {
 /* Hero Section */
 .hero-section {
     height: 100vh;
-    background-color: var(--surface-color);
+    background-color: #1a1a1a;
+}
+.hero-section .carousel-inner,
+.hero-section .carousel-item {
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    top: 0 !important;
+}
+
+/* Secondary Page Headers - Prevent Navbar Overlap */
+header:not(.hero-section) > .container,
+header:not(.hero-section) > .container-fluid {
+    padding-top: 100px !important;
 }
 
 .text-gradient {
@@ -544,8 +557,35 @@ a:hover {
 @media (max-width: 991.98px) {
     
     .navbar {
+        background-color: transparent !important;
+        box-shadow: none !important;
+    }
+    .navbar.scrolled {
         background-color: var(--surface-color) !important;
-        box-shadow: var(--shadow-sm);
+        box-shadow: var(--shadow-sm) !important;
+    }
+    
+    /* Invert logo and icon when navbar is transparent (not scrolled and menu closed) */
+    body:not(.body-no-scroll) .navbar:not(.scrolled) .navbar-brand img {
+        filter: brightness(0) invert(1);
+    }
+    body:not(.body-no-scroll) .navbar:not(.scrolled) .navbar-toggler i {
+        color: white !important;
+    }
+    
+    /* Make navbar solid white when menu is open */
+    body.body-no-scroll .navbar {
+        background-color: var(--surface-color) !important;
+    }
+    body.body-no-scroll .navbar-brand img {
+        filter: none !important;
+    }
+    body.body-no-scroll .navbar-toggler i {
+        color: var(--text-primary) !important;
+    }
+    
+    .navbar-brand, .navbar-toggler {
+        margin-bottom: 0 !important;
     }
 
     .navbar-collapse {

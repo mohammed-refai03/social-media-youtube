@@ -15,6 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- 1.5 Navbar Body Scroll Lock ---
+    const navbarContent = document.getElementById('navbarContent');
+    if (navbarContent) {
+        navbarContent.addEventListener('show.bs.collapse', () => {
+            document.body.classList.add('body-no-scroll');
+            document.documentElement.classList.add('body-no-scroll');
+        });
+        navbarContent.addEventListener('hide.bs.collapse', () => {
+            document.body.classList.remove('body-no-scroll');
+            document.documentElement.classList.remove('body-no-scroll');
+        });
+    }
+
     // --- 2. Data Population ---
 
     // Live Now Data
@@ -91,14 +104,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const chartsContainer = document.getElementById('charts-container');
     if (chartsContainer) {
         chartsContainer.innerHTML = chartsData.map(c => `
-            <div class="chart-card bg-white rounded-3 shadow-sm d-flex align-items-center p-2" style="min-width: 350px; cursor: pointer;">
-                <div class="fw-bold fs-3 text-muted px-3 opacity-50">${c.rank}</div>
-                <img src="${c.thumb}" alt="Cover" class="rounded" width="80" height="80" style="object-fit: cover;">
-                <div class="ms-3 overflow-hidden">
-                    <h6 class="fw-bold mb-1 text-truncate">${c.title}</h6>
-                    <p class="small text-muted mb-0">${c.creator}</p>
+            <div class="chart-card bg-white rounded-4 shadow-sm d-flex align-items-center p-3 hover-scale transition" style="min-width: 85vw; max-width: 380px; cursor: pointer; scroll-snap-align: center; border: 1px solid rgba(0,0,0,0.05);">
+                <div class="fw-bolder fs-2 text-primary px-3 opacity-75" style="min-width: 50px; text-align: center;">${c.rank}</div>
+                <div class="position-relative shadow-sm rounded overflow-hidden" style="width: 80px; height: 80px; flex-shrink: 0;">
+                    <img src="${c.thumb}" alt="Cover" class="w-100 h-100 object-fit-cover hover-scale transition">
+                    <div class="position-absolute top-50 start-50 translate-middle text-white opacity-0 hover-opacity-100 transition bg-dark bg-opacity-50 w-100 h-100 d-flex justify-content-center align-items-center">
+                        <i class="fa-solid fa-play fs-4"></i>
+                    </div>
                 </div>
-                <button class="btn btn-link text-primary ms-auto"><i class="fa-solid fa-play-circle fs-3"></i></button>
+                <div class="ms-4 overflow-hidden pe-2">
+                    <h5 class="fw-bold mb-1 text-dark text-truncate">${c.title}</h5>
+                    <p class="text-muted mb-0 fw-medium">${c.creator}</p>
+                </div>
+                <button class="btn btn-light rounded-circle ms-auto p-0 d-flex justify-content-center align-items-center shadow-sm text-primary hover-primary transition" style="width: 45px; height: 45px; flex-shrink: 0;">
+                    <i class="fa-solid fa-play"></i>
+                </button>
             </div>
         `).join('');
     }
