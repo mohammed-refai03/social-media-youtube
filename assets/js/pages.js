@@ -15,6 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // --- 1.5 Navbar Body Scroll Lock ---
+    const navbarContent = document.getElementById('navbarContent');
+    if (navbarContent) {
+        navbarContent.addEventListener('show.bs.collapse', () => {
+            document.body.classList.add('body-no-scroll');
+            document.documentElement.classList.add('body-no-scroll');
+        });
+        navbarContent.addEventListener('hide.bs.collapse', () => {
+            document.body.classList.remove('body-no-scroll');
+            document.documentElement.classList.remove('body-no-scroll');
+        });
+    }
+
     // --- 2. About Page Data Population ---
     const teamData = [
         { name: "Sarah Jenkins", role: "CEO & Co-Founder", avatar: "images/unsplash-4aa8ce792b.webp" },

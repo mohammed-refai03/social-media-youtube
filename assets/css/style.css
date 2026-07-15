@@ -562,6 +562,11 @@ a:hover {
         text-align: center;
     }
 
+    .navbar-collapse.collapsing {
+        height: 100vh !important;
+        transition: none;
+    }
+
     .navbar-nav {
         align-items: center;
     }
@@ -748,6 +753,11 @@ a:hover {
 #contactForm .form-control::placeholder, #contactForm .form-select::placeholder {
     font-size: 0.85rem;
     opacity: 0.7;
-    transform: translateY(1px);
 }
 
+/* Utility to prevent scrolling when mobile sidebar is open */
+html.body-no-scroll, body.body-no-scroll {
+    overflow: hidden !important;
+    height: 100vh !important;
+    touch-action: none;
+}

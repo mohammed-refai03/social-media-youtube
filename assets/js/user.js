@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileToggle.addEventListener('click', () => {
             sidebar.classList.toggle('show');
             body.classList.toggle('body-no-scroll');
+            document.documentElement.classList.toggle('body-no-scroll');
         });
 
         // Close sidebar when clicking outside on mobile
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 sidebar.classList.contains('show')) {
                 sidebar.classList.remove('show');
                 body.classList.remove('body-no-scroll');
+                document.documentElement.classList.remove('body-no-scroll');
             }
         });
     }
@@ -75,10 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 topbarTitle.textContent = item.textContent.trim();
             }
             
-            // On mobile, close sidebar after clicking a link
+            // On mobile, close sidebar after clicking
             if (window.innerWidth <= 991 && sidebar.classList.contains('show')) {
                 sidebar.classList.remove('show');
                 body.classList.remove('body-no-scroll');
+                document.documentElement.classList.remove('body-no-scroll');
             }
         });
     });

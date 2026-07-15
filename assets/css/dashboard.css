@@ -282,6 +282,8 @@ body {
 }
 
 /* Utility to prevent scrolling when mobile sidebar is open */
-.body-no-scroll {
-    overflow: hidden;
+html.body-no-scroll, body.body-no-scroll {
+    overflow: hidden !important;
+    height: 100vh !important;
+    touch-action: none;
 }

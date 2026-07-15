@@ -20,9 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navbarContent) {
         navbarContent.addEventListener('show.bs.collapse', () => {
             document.body.classList.add('body-no-scroll');
+            document.documentElement.classList.add('body-no-scroll');
         });
         navbarContent.addEventListener('hide.bs.collapse', () => {
             document.body.classList.remove('body-no-scroll');
+            document.documentElement.classList.remove('body-no-scroll');
         });
     }
 
